@@ -9,11 +9,11 @@ export async function GET(req: NextRequest) {
   const cookieStore = cookies()
 
   const params = new URLSearchParams({
-    client_id: env.NEXT_PUBLIC_DISCORD_CLIENT_ID,
-    client_secret: env.DISCORD_CLIENT_SECRET,
-    grant_type: 'authorization_code',
-    code: searchParams.get('code'),
-    redirect_uri: env.NEXT_PUBLIC_DISCORD_CALLBACK_URL,
+    client_id: env.NEXT_PUBLIC_DISCORD_CLIENT_ID as string,
+    client_secret: env.DISCORD_CLIENT_SECRET as string,
+    grant_type: 'authorization_code' as string,
+    code: searchParams.get('code') as string,
+    redirect_uri: env.NEXT_PUBLIC_DISCORD_CALLBACK_URL as string,
   })
 
   const data = await fetch('https://discord.com/api/v10/oauth2/token', {
