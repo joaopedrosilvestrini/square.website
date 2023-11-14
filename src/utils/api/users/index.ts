@@ -1,7 +1,7 @@
 import { APIUser } from 'discord-api-types/v10'
-import { redirect } from 'next/navigation'
 import { env } from '~/env.mjs'
 import api from '..'
+import Users from '~/app/(models)/Users'
 
 const apiUser = {
   getLogginUser: async () => {
@@ -13,7 +13,14 @@ const apiUser = {
       next: { revalidate: 3_600 },
     })
 
-    return (await userData.json()) as APIUser
+    const data = await userData.json()
+    await Users.findOneAndUpdate(
+      { _id: data.id },
+      { username: data.username, avatar: data.avatar, _id: data.id },
+      { new: true, upsert: true },
+    )
+
+    return data as APIUser
   },
   fetchUser: async (userId: string) => {
     const result = await fetch(`https://discord.com/api/v10/users/${userId}`, {
@@ -22,10 +29,6 @@ const apiUser = {
       },
       next: { revalidate: 3_600 },
     })
-
-    if (result.status !== 200) {
-      redirect('/api/auth/logout')
-    }
 
     return (await result.json()) as APIUser
   },

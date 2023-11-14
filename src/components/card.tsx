@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { ServerStructure } from '~/types'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -17,14 +18,18 @@ export default function Card() {
   useEffect(() => {
     fetchData()
   }, [])
-
-  console.log(data)
   return (
     <>
       {data?.slice(0, 4).map((server, index) => (
         <>
           <Link href="oi" key={index}>
-            <div className="w-full bg-[#18141c] rounded-sm overflow-hidden select-none p-4 bg-opacity-20 hover:bg-opacity-10 transition-all duration-200">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.1 }}
+              className="w-full bg-[#18141c] rounded-sm overflow-hidden select-none p-4 bg-opacity-20 hover:bg-opacity-100 transition-all duration-200"
+            >
               <div>
                 <div className="flex items-center justify-center m-2">
                   <div className="flex justify-start">
@@ -46,7 +51,7 @@ export default function Card() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </Link>
         </>
       ))}

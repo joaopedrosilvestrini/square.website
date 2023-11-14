@@ -7,7 +7,7 @@ export default async function Home() {
         <div className="max-w-7xl w-full">
           <div className="w-full flex items-center justify-center gap-36 py-24">
             <div className="lg:max-w-2xl w-full text-center">
-              <h1 className="relative text-4xl lg:text-5xl pb-2 leading-20 font-bold">
+              <h1 className="relative bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-500 text-4xl lg:text-5xl pb-2 leading-20 font-bold">
                 Square ServerList
               </h1>
               <p className="text-lg text-gray-500 mt-4 font-medium">

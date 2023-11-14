@@ -12,12 +12,10 @@ export interface ServerStructure {
   verified: boolean
 }
 
-export interface LoginCallbackProps {
-  client_id: string
-  client_secret: string
-  garant_type: string
-  code: string
-  redirect_ui: string
+export interface UserStructure {
+  _id: string
+  username: string
+  avatar: string
 }
 
 export interface NavbarProps {

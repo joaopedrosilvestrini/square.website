@@ -31,8 +31,6 @@ const api = {
       },
     )
 
-    console.log(result)
-
     return (await result.json()) as APIGuild
   },
 }
