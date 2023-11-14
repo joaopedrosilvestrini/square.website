@@ -13,6 +13,7 @@
     "@heroicons/react": "^2.0.18",
     "@next/bundle-analyzer": "^14.0.2",
     "@t3-oss/env-nextjs": "^0.7.1",
+    "discord-api-types": "^0.37.63",
     "mongoose": "^8.0.0",
     "next": "14.0.2",
     "react": "^18",
