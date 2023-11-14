@@ -29,7 +29,6 @@ export async function GET(req: NextRequest) {
   cookieStore.set(DISCORD_OAUTH_COOKIES_KEY, json.access_token, {
     maxAge: json.expires_in,
     path: '/',
-    refresh_token: json.refresh_token,
     httpOnly: true,
     secure: true,
   })
